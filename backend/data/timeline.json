@@ -1,0 +1,32 @@
+[
+  {
+    "title": {
+      "en": "Team Formation",
+      "ar": "تكوين الفريق"
+    },
+    "date": "Jan 2026",
+    "order": 1,
+    "_id": "1",
+    "createdAt": "2026-03-27T00:03:36.173Z"
+  },
+  {
+    "title": {
+      "en": "Challenge Dev",
+      "ar": "تطوير التحديات"
+    },
+    "date": "Mar 2026",
+    "order": 2,
+    "_id": "2",
+    "createdAt": "2026-03-27T00:03:36.173Z"
+  },
+  {
+    "title": {
+      "en": "Event Launch",
+      "ar": "إطلاق الفعالية"
+    },
+    "date": "July 2026",
+    "order": 5,
+    "_id": "3",
+    "createdAt": "2026-03-27T00:03:36.173Z"
+  }
+]

@@ -1,0 +1,14 @@
+node_modules/
+.next/
+.env
+.env.local
+backend/data/*.json
+*.pdf
+*.pptx
+!backend/data/events.json
+!backend/data/gallery.json
+!backend/data/media.json
+!backend/data/members.json
+!backend/data/sponsors.json
+!backend/data/stats.json
+!backend/data/timeline.json

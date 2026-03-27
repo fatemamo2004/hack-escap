@@ -1,0 +1,110 @@
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 2rem 0;
+}
+
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--primary), transparent);
+  box-shadow: 0 0 10px var(--primary-glow);
+  transform: translateX(-50%);
+}
+
+[dir="rtl"] .line {
+  left: auto;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.item {
+  position: relative;
+  margin-bottom: 4rem;
+  width: 50%;
+  padding: 0 3rem;
+}
+
+.item:nth-child(even) {
+  margin-left: 50%;
+  text-align: left;
+}
+
+.item:nth-child(odd) {
+  text-align: right;
+}
+
+[dir="rtl"] .item:nth-child(even) {
+  margin-left: 0;
+  margin-right: 50%;
+  text-align: right;
+}
+
+[dir="rtl"] .item:nth-child(odd) {
+  text-align: left;
+}
+
+.dot {
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--background);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary-glow);
+  z-index: 2;
+}
+
+.item:nth-child(odd) .dot {
+  right: -8px;
+}
+
+.item:nth-child(even) .dot {
+  left: -8px;
+}
+
+[dir="rtl"] .item:nth-child(odd) .dot {
+  right: auto;
+  left: -8px;
+}
+
+[dir="rtl"] .item:nth-child(even) .dot {
+  left: auto;
+  right: -8px;
+}
+
+.date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--primary);
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.milestone {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.desc {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .line { left: 0; transform: none; }
+  [dir="rtl"] .line { right: 0; transform: none; }
+  .item { width: 100% !important; margin: 0 0 3rem 0 !important; text-align: left !important; padding: 0 0 0 2rem !important; }
+  [dir="rtl"] .item { text-align: right !important; padding: 0 2rem 0 0 !important; }
+  .dot { left: -7px !important; }
+  [dir="rtl"] .dot { left: auto !important; right: -7px !important; }
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Strategic Tech Partner",
+    "tier": "partner",
+    "logo": "SP",
+    "_id": "1",
+    "createdAt": "2026-03-27T00:03:36.170Z"
+  },
+  {
+    "name": "Gold Cyber Shield",
+    "tier": "gold",
+    "logo": "GS",
+    "_id": "2",
+    "createdAt": "2026-03-27T00:03:36.170Z"
+  }
+]

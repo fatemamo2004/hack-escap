@@ -1,0 +1,78 @@
+.container {
+  padding: 120px 5% 60px;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.intro {
+  font-size: 1.2rem;
+  color: rgba(230, 241, 255, 0.7);
+  line-height: 1.6;
+}
+
+.layers {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.layerCard {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.layerNum {
+  font-family: var(--font-mono);
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(0, 245, 212, 0.1);
+  min-width: 100px;
+}
+
+.layerLine {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+[dir="rtl"] .layerLine {
+  background: linear-gradient(-90deg, var(--primary), transparent);
+}
+
+@media (max-width: 768px) {
+  .layerCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .layerLine {
+    display: none;
+  }
+  
+  .layerNum {
+    font-size: 2.5rem;
+    min-width: auto;
+  }
+}

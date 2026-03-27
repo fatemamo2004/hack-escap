@@ -1,0 +1,77 @@
+.container {
+  padding: 120px 5% 60px;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.memberInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imagePlaceholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0, 245, 212, 0.1);
+  border: 2px solid var(--primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyberAvatar {
+  width: 80%;
+  height: 80%;
+  background: var(--primary);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  opacity: 0.3;
+}
+
+.role {
+  color: var(--primary);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-family: var(--font-mono);
+}
+
+.bio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.7;
+}
+
+.noData {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 40px;
+  opacity: 0.5;
+}
