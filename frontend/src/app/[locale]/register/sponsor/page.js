@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import styles from './register.module.css';
+import styles from '../register.module.css';
 
 export default function SponsorRegisterPage({ params }) {
   const { locale } = params;
@@ -16,18 +16,18 @@ export default function SponsorRegisterPage({ params }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          ...formData, 
+        body: JSON.stringify({
+          ...formData,
           type: 'sponsor',
           details: { companyName: formData.companyName, tierInterest: formData.tierInterest }
         })
       });
-      
+
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', companyName: '', tierInterest: 'gold', message: '' });
@@ -77,42 +77,42 @@ export default function SponsorRegisterPage({ params }) {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <label>{t.company}</label>
-            <input 
-              type="text" 
-              required 
+            <input
+              type="text"
+              required
               value={formData.companyName}
-              onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-              placeholder="Tech Corp Inc." 
+              onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
+              placeholder="Tech Corp Inc."
             />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t.contactName}</label>
-            <input 
-              type="text" 
-              required 
+            <input
+              type="text"
+              required
               value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              placeholder="John Doe" 
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="John Doe"
             />
           </div>
-          
+
           <div className={styles.inputGroup}>
             <label>{t.email}</label>
-            <input 
-              type="email" 
-              required 
+            <input
+              type="email"
+              required
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-              placeholder="partners@techcorp.com" 
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="partners@techcorp.com"
             />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t.tier}</label>
-            <select 
+            <select
               value={formData.tierInterest}
-              onChange={(e) => setFormData({...formData, tierInterest: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, tierInterest: e.target.value })}
               className={styles.select}
             >
               <option value="strategic">Strategic Partner</option>
@@ -124,10 +124,10 @@ export default function SponsorRegisterPage({ params }) {
 
           <div className={styles.inputGroup}>
             <label>{t.message}</label>
-            <textarea 
+            <textarea
               rows="4"
               value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder="Tell us about your sponsorship goals..."
             ></textarea>
           </div>
@@ -135,7 +135,7 @@ export default function SponsorRegisterPage({ params }) {
           <button type="submit" className={styles.submitBtn} disabled={status === 'loading'}>
             {status === 'loading' ? 'Sending...' : t.submit}
           </button>
-          
+
           {status === 'success' && <p className={styles.success}>{t.success}</p>}
           {status === 'error' && <p className={styles.error}>{t.error}</p>}
         </form>
