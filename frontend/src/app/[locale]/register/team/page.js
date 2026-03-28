@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import styles from '../sponsor/register.module.css'; // Reuse styles
+import styles from '../register.module.css'; // Reuse styles
 
 export default function TeamRegisterPage({ params }) {
   const { locale } = params;
@@ -16,18 +16,18 @@ export default function TeamRegisterPage({ params }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
-    
+
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/inquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          ...formData, 
+        body: JSON.stringify({
+          ...formData,
           type: 'team',
           details: { teamName: formData.teamName, university: formData.university }
         })
       });
-      
+
       if (res.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', teamName: '', university: '', message: '' });
@@ -77,54 +77,54 @@ export default function TeamRegisterPage({ params }) {
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <label>{t.teamName}</label>
-            <input 
-              type="text" 
-              required 
+            <input
+              type="text"
+              required
               value={formData.teamName}
-              onChange={(e) => setFormData({...formData, teamName: e.target.value})}
-              placeholder="Team Alpha" 
+              onChange={(e) => setFormData({ ...formData, teamName: e.target.value })}
+              placeholder="Team Alpha"
             />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t.university}</label>
-            <input 
-              type="text" 
-              required 
+            <input
+              type="text"
+              required
               value={formData.university}
-              onChange={(e) => setFormData({...formData, university: e.target.value})}
-              placeholder="University of Jordan" 
+              onChange={(e) => setFormData({ ...formData, university: e.target.value })}
+              placeholder="University of Jordan"
             />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t.captain}</label>
-            <input 
-              type="text" 
-              required 
+            <input
+              type="text"
+              required
               value={formData.name}
-              onChange={(e) => setFormData({...formData, name: e.target.value})}
-              placeholder="Leader Name" 
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="Leader Name"
             />
           </div>
-          
+
           <div className={styles.inputGroup}>
             <label>{t.email}</label>
-            <input 
-              type="email" 
-              required 
+            <input
+              type="email"
+              required
               value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-              placeholder="captain@uni.edu" 
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="captain@uni.edu"
             />
           </div>
 
           <div className={styles.inputGroup}>
             <label>{t.message}</label>
-            <textarea 
+            <textarea
               rows="3"
               value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               placeholder="Optional message..."
             ></textarea>
           </div>
@@ -132,7 +132,7 @@ export default function TeamRegisterPage({ params }) {
           <button type="submit" className={styles.submitBtn} disabled={status === 'loading'}>
             {status === 'loading' ? 'Processing...' : t.submit}
           </button>
-          
+
           {status === 'success' && <p className={styles.success}>{t.success}</p>}
           {status === 'error' && <p className={styles.error}>{t.error}</p>}
         </form>
